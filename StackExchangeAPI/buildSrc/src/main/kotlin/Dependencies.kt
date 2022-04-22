@@ -1,7 +1,5 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
-const val kotlinVersion = "1.5.30"
-
 fun DependencyHandler.coroutines() {
     val version = "1.3.4"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$version")
@@ -41,7 +39,7 @@ fun DependencyHandler.room() {
 }
 
 fun DependencyHandler.paging() {
-    val pagingVersion = "3.0.0-alpha06"
+    val pagingVersion = "3.1.1"
     implementation("androidx.paging:paging-runtime:$pagingVersion")
 }
 
@@ -53,7 +51,7 @@ fun DependencyHandler.retrofit() {
 }
 
 fun DependencyHandler.moshi() {
-    val version = "1.12.0"
+    val version = "1.13.0"
     implementation("com.squareup.moshi:moshi:$version")
     implementation("com.squareup.moshi:moshi-adapters:$version")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$version")
@@ -68,6 +66,16 @@ fun DependencyHandler.glide() {
 
 fun DependencyHandler.mockWebService() {
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
+}
+
+fun DependencyHandler.mockito() {
+    val version = "3.12.4"
+    testImplementation("org.mockito:mockito-core:$version")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+}
+
+fun DependencyHandler.hamcrest() {
+    testImplementation("org.hamcrest:hamcrest-library:2.2")
 }
 
 ///////////////
