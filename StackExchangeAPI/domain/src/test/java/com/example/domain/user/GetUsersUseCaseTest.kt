@@ -8,37 +8,26 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Assert.*
 import org.junit.Test
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.kotlin.mock
 import org.mockito.kotlin.any
 
 class GetUsersUseCaseTest {
 
-    private val repo = mock(UsersRepo::class.java)
+    private val repo: UsersRepo = mock()
     private val unitUnderTest: GetUsersUseCase = GetUsersUseCase(repo)
 
+    private val searchTerm = "hello"
     private val listOfDomainEntities = listOf(
         UserDomainEntity.EMPTY.copy(displayName = "hello you"),
         UserDomainEntity.EMPTY.copy(displayName = "hello me"),
     )
-
     private val errorResponse = DomainResponse.Error(500, "An Error Occurred")
-
-    @org.junit.Before
-    fun setUp() {
-        runBlocking {
-
-        }
-    }
-
-    @org.junit.After
-    fun tearDown() {
-    }
 
     @Test
     fun `GIVEN I am searching for a term WHEN data is present THEN return a correct 'Content' result`() = runBlocking {
         setupSuccess()
-        val result = unitUnderTest.execute(SEARCH_TERM)
-        assertTrue(result is DomainResponse.Content)
+        val result = unitUnderTest.execute(searchTerm)
+        assertTrue(result is DomainResponse.Content<List<UserDomainEntity>>)
         when(result){
             is DomainResponse.Content -> {
                 val listResult:List<UserDomainEntity>  = result.result
@@ -50,7 +39,7 @@ class GetUsersUseCaseTest {
     @Test
     fun `GIVEN I am searching for a term WHEN data is not present THEN return 'Error'`() = runBlocking {
         setupFail()
-        val result = unitUnderTest.execute(SEARCH_TERM)
+        val result = unitUnderTest.execute(searchTerm)
         assertTrue(result is DomainResponse.Error)
         when(result){
             is DomainResponse.Error -> {
@@ -60,7 +49,7 @@ class GetUsersUseCaseTest {
     }
 
     private suspend fun setupSuccess() {
-        `when`(repo.getUsers(SEARCH_TERM)).thenReturn(
+        `when`(repo.getUsers(searchTerm)).thenReturn(
             DomainResponse.Content(
                 listOfDomainEntities
             )
@@ -74,5 +63,3 @@ class GetUsersUseCaseTest {
     }
 
 }
-
-private const val SEARCH_TERM = "hello"
