@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetModule {
 
-    // TODO: Inject base url and version
     @Provides
     @Singleton
     fun provideRetrofit(

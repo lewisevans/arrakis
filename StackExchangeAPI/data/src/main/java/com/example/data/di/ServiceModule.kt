@@ -14,8 +14,11 @@ object ServiceModule {
 
     @Provides
     @Singleton
-    fun provideService(retrofit: Retrofit): StackExchangeApiService {
-        retrofit.newBuilder().baseUrl("https://api.stackexchange.com/2.3/")
-        return retrofit.create(StackExchangeApiService::class.java)
-    }
+    fun provideService(retrofit: Retrofit): StackExchangeApiService =
+        retrofit
+            .newBuilder()
+            .baseUrl("https://api.stackexchange.com/2.3/")
+            .build()
+            .create(StackExchangeApiService::class.java)
+
 }

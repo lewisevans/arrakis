@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
-    kotlin("android")
     kotlin("kapt")
 }
 
@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
+    api(project(":domain"))
 
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
@@ -44,6 +44,8 @@ dependencies {
     hilt()
     retrofit()
     moshi()
+
+    mockito()
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

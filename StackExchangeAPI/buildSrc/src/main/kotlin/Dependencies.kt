@@ -1,10 +1,14 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
+private const val coroutinesVersion = "1.3.4"
 fun DependencyHandler.coroutines() {
-    val version = "1.3.4"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$version")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+    coroutinesTest()
+}
+
+fun DependencyHandler.coroutinesTest() {
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 }
 
 fun DependencyHandler.activityX() {
@@ -22,11 +26,10 @@ fun DependencyHandler.constraintLayout() {
 }
 
 fun DependencyHandler.hilt() {
-    val dagger = "2.38.1"
+    val dagger = "2.41"
     val hilt = "1.0.0-alpha01"
     implementation("com.google.dagger:hilt-android:$dagger")
     kapt("com.google.dagger:hilt-android-compiler:$dagger")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$hilt")
     kapt("androidx.hilt:hilt-compiler:$hilt")
 }
 
