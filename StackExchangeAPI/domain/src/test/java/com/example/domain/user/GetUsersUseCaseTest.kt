@@ -24,7 +24,7 @@ class GetUsersUseCaseTest {
     private val errorResponse = DomainResponse.Error(500, "An Error Occurred")
 
     @Test
-    fun `GIVEN I am searching for a term WHEN data is present THEN return a correct 'Content' result`() = runBlocking {
+    fun `GIVEN the SUT is requesting data from the repository WHEN data is present THEN return a correct 'Content' result`() = runBlocking {
         setupSuccess()
         val result = unitUnderTest.execute(searchTerm)
         assertTrue(result is DomainResponse.Content<List<UserDomainEntity>>)
@@ -37,7 +37,7 @@ class GetUsersUseCaseTest {
     }
 
     @Test
-    fun `GIVEN I am searching for a term WHEN data is not present THEN return 'Error'`() = runBlocking {
+    fun `GIVEN the SUT is requesting data from the repository WHEN data is not present THEN return 'Error'`() = runBlocking {
         setupFail()
         val result = unitUnderTest.execute(searchTerm)
         assertTrue(result is DomainResponse.Error)

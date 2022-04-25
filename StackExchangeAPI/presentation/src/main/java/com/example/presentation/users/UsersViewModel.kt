@@ -1,6 +1,5 @@
 package com.example.presentation.users
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.domain.DomainResponse
@@ -11,8 +10,8 @@ import javax.inject.Inject
 @HiltViewModel
 class UsersViewModel @Inject constructor(
     private val useCase: GetUsersUseCase
-): ViewModel() {
-    fun getUsers(searchString: String) = liveData{
+) : ViewModel() {
+    fun getUsers(searchString: String) = liveData {
         emit(DomainResponse.Loading)
         emit(useCase.execute(searchString))
     }
