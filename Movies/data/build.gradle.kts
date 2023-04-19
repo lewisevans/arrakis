@@ -7,12 +7,12 @@ plugins {
 
 /*MOVE THIS TO PLUGIN*/
 android {
-    namespace = "com.example.movies.data"
-    compileSdk = 33
+    namespace = ConfigData.namespace
+    compileSdk = ConfigData.compileSdk
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
+        minSdk = ConfigData.minSdk
+        targetSdk = ConfigData.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

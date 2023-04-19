@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.movies"
-    compileSdk = 33
+    namespace = ConfigData.namespace
+    compileSdk = ConfigData.compileSdk
 
     defaultConfig {
         applicationId = "com.example.movies"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = ConfigData.minSdk
+        targetSdk = ConfigData.targetSdk
+        versionCode = ConfigData.versionCode
+        versionName = ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
