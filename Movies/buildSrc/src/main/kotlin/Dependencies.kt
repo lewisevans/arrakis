@@ -21,18 +21,28 @@ fun DependencyHandler.compose() {
     implementation("androidx.navigation:navigation-compose:${navigationComposeVersion}")
 }
 
-fun DependencyHandler.generalTest() {
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-}
-
-
 fun DependencyHandler.coroutines() {
     val version = "1.3.9"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$version")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$version")
+}
+
+fun DependencyHandler.hiltCompose() {
+    val hiltNavCompose = "1.0.0"
+    implementation("androidx.hilt:hilt-navigation-compose:$hiltNavCompose")
+    hilt()
+}
+fun DependencyHandler.hilt() {
+    val daggerHilt = "2.45"
+    implementation ("com.google.dagger:hilt-android:$daggerHilt")
+    kapt ("com.google.dagger:hilt-compiler:$daggerHilt")
+}
+
+fun DependencyHandler.generalTest() {
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
 ///////////////

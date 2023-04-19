@@ -1,8 +1,10 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
-
+/*MOVE THIS TO PLUGIN*/
 android {
     namespace = "com.example.movies.presentation"
     compileSdk = 33
@@ -51,5 +53,10 @@ dependencies {
 
     compose()
 
+    hiltCompose()
+
     generalTest()
+}
+kapt {
+    correctErrorTypes = true
 }
