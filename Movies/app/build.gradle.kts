@@ -52,11 +52,14 @@ dependencies {
     implementation(project(":presentation"))
     implementation(project(":data"))
 
-    hilt()
-
     implementation("androidx.core:core-ktx:1.10.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")
+
+    hilt()
+
+    coroutines()
+    androidTest()
 }
 
 kapt {

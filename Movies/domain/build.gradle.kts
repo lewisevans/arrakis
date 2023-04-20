@@ -11,4 +11,5 @@ java {
 dependencies {
     implementation("javax.inject:javax.inject:1")
     coroutines()
+    /*TESTING DONE IN :app MODULE FOR CONVENIENCE*/
 }
