@@ -1,6 +1,6 @@
 ### Architecture
 
-There are three main modules tha contain all the Application code
+There are three main modules that contain all the Application code
 * [:Presentation](presentation/) - Compose UI and ViewModels
 * [:Domain](domain/) - UseCases and repository interfaces
 * [:Data](data/) - Concrete repositories, DataSources, Services and other things such as Room (not currently implemented)
@@ -8,7 +8,7 @@ There are three main modules tha contain all the Application code
 And one module to tie them together
 * [:App](app/)
 
-The dependencies go in towards to domain following the Clean Architecture principle therefore the Domain has no dependencies, the Presentation and Data only depend on the Domain and not each other.
+The dependencies go in towards the domain following the Clean Architecture principle therefore the Domain has no dependencies, the Presentation and Data only depend on the Domain and not each other.
 
 These layers are all orchestrated from the application module.
 
