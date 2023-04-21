@@ -21,16 +21,12 @@ fun SearchScreen(
 ) {
     val viewModelState by viewModel.viewModelState.collectAsState(initial = ViewModelState())
 
-    if (viewModelState.results.isEmpty()) {
-        LoadingView()
-    } else {
-        SearchScreen(
-            modifier,
-            viewModelState,
-            onSearchTextChanged = { viewModel.onSearchTextChanged(it) },
-            onClearClick = { viewModel.onClearClick() }
-        )
-    }
+    SearchScreen(
+        modifier,
+        viewModelState,
+        onSearchTextChanged = { viewModel.onSearchTextChanged(it) },
+        onClearClick = { viewModel.onClearClick() }
+    )
 }
 
 @Composable
@@ -46,13 +42,17 @@ fun SearchScreen(
             onSearchTextChanged = onSearchTextChanged,
             onClearClick = onClearClick
         )
-        LazyColumn(
-            modifier = Modifier.testTag(TEST_TAG_RESULTS_LIST),
-            contentPadding = PaddingValues(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            items(viewModelState.results) {
-                FilmItemView(item = it)
+        if (viewModelState.results.isEmpty() && viewModelState.searchText.isEmpty()) {
+            LoadingView()
+        } else {
+            LazyColumn(
+                modifier = Modifier.testTag(TEST_TAG_RESULTS_LIST),
+                contentPadding = PaddingValues(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                items(viewModelState.results) {
+                    FilmItemView(item = it)
+                }
             }
         }
     }
