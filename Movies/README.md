@@ -13,7 +13,9 @@ The dependencies go in towards the domain following the Clean Architecture princ
 These layers are all orchestrated from the application module.
 
 ## Caching
-There is Caching in the Data layer achieved via a MemCache but currently it is not expiring. It would be a minor change to rectify this by adding a timestamp to the data.
+There is Caching in the Data layer achieved via a MemCache in the [localDataSource](data/src/main/java/com/example/movies/data/LocalDataSource.kt) but currently it is not expiring. It would be a minor change to rectify this by adding a timestamp to the data.
+### NOTE:
+To achieve the 10 minute cache it would make sense to put the data in Room with a timestamp and then check this when retrieving from the localDatasource
 
 ## Testing
 All testing is in the :App module currently but should really be inside each module

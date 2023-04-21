@@ -1,4 +1,4 @@
-package uk.co.subtronic.presentation.main
+package com.example.movies.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

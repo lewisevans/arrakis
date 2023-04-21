@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.movies.presentation.LoadingView
 
 @Composable
 fun SearchScreen(
@@ -20,12 +21,16 @@ fun SearchScreen(
 ) {
     val viewModelState by viewModel.viewModelState.collectAsState(initial = ViewModelState())
 
-    SearchScreen(
-        modifier,
-        viewModelState,
-        onSearchTextChanged = { viewModel.onSearchTextChanged(it) },
-        onClearClick = { viewModel.onClearClick() }
-    )
+    if (viewModelState.results.isEmpty()) {
+        LoadingView()
+    } else {
+        SearchScreen(
+            modifier,
+            viewModelState,
+            onSearchTextChanged = { viewModel.onSearchTextChanged(it) },
+            onClearClick = { viewModel.onClearClick() }
+        )
+    }
 }
 
 @Composable
