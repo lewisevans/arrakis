@@ -1,7 +1,7 @@
 package com.example.movies.data
 
 import com.example.movies.domain.FilmDomainEntity
-import com.example.movies.fake.FakeFilmRepository
+import movies.fake.FakeFilmRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first

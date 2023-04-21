@@ -19,6 +19,11 @@ fun DependencyHandler.compose() {
     /*NOT USED*/
     val navigationComposeVersion = "2.5.3"
     implementation("androidx.navigation:navigation-compose:${navigationComposeVersion}")
+    coil()
+}
+
+fun DependencyHandler.coil() {
+    implementation("io.coil-kt:coil-compose:2.3.0")
 }
 
 fun DependencyHandler.coroutines() {
@@ -46,12 +51,12 @@ fun DependencyHandler.retrofit() {
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 }
 
-/*fun DependencyHandler.moshi() {
-    val version = "1.13.0"
+fun DependencyHandler.moshi() {
+    val version = "1.14.0"
     implementation("com.squareup.moshi:moshi:$version")
     implementation("com.squareup.moshi:moshi-adapters:$version")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$version")
-}*/
+}
 
 /*TEST*/
 

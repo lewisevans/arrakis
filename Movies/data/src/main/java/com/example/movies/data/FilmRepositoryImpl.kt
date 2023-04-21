@@ -7,6 +7,7 @@ import com.example.movies.domain.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -30,7 +31,7 @@ class FilmRepositoryImpl @Inject constructor(
 
 
     override fun getAllFilmsByTerm(term: String): Flow<List<FilmDomainEntity>> =
-        getAllFilms().onEach { remoteEntities ->
+        getAllFilms().map { remoteEntities ->
             remoteEntities.filter { entity ->
                 entity.title.contains(term, true) ||
                         entity.genre.any { genre ->

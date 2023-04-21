@@ -4,7 +4,7 @@ import com.example.movies.data.DataSource
 import com.example.movies.domain.FilmDomainEntity
 import kotlinx.coroutines.flow.Flow
 
-class ffFakeRemoteDataSource: DataSource {
+class FakeRemoteDataSource: DataSource {
     override fun getFilms(): Flow<List<FilmDomainEntity>> {
         TODO("Not yet implemented")
     }

@@ -1,11 +1,11 @@
-package com.example.movies.fake
+package movies.fake
 
 import com.example.movies.domain.FilmDomainEntity
 import com.example.movies.domain.FilmRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class ffFakeFilmRepository : FilmRepository {
+class FakeFilmRepository : FilmRepository {
 
     override fun getAllFilms(): Flow<List<FilmDomainEntity>> =
         flow {

@@ -41,11 +41,22 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.5"
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    sourceSets.getByName("test").java.srcDirs("src/testFakes/java/")
+    sourceSets.getByName("androidTest").java.srcDirs("src/androidTestFakes/java/")
+
 }
 
 dependencies {
@@ -56,8 +67,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")
 
+    compose() //used for testing
     hilt()
-
     coroutines()
     androidTest()
 }

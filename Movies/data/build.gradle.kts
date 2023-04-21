@@ -40,9 +40,9 @@ dependencies {
     api(project(":domain"))
 
     coroutines()
-    hilt()
+    hiltCompose()
     retrofit()
-    /*moshi()*/
+    moshi()
     generalTest()
 }
 

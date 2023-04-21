@@ -23,5 +23,6 @@ class RemoteDataSource @Inject constructor(
 
 private fun FilmApiEntity.toDomain() = FilmDomainEntity(
     title = title ?: "No title provided",
+    poster = poster ?: "file:///android_asset/poster-placeholder.png",
     genre = genre?.split(",")?.onEach { it.trim() } ?: emptyList()
 )
