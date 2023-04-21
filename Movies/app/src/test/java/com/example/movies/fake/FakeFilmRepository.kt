@@ -1,4 +1,4 @@
-package com.example.movies.domain.fake
+package com.example.movies.fake
 
 import com.example.movies.domain.FilmDomainEntity
 import com.example.movies.domain.FilmRepository

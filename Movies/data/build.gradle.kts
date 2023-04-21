@@ -36,14 +36,14 @@ android {
     }
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
 dependencies {
     api(project(":domain"))
+
+    coroutines()
     hilt()
+    retrofit()
+    /*moshi()*/
+    generalTest()
 }
 
 kapt {

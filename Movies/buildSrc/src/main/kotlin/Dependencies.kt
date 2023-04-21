@@ -39,14 +39,37 @@ fun DependencyHandler.hilt() {
     kapt ("com.google.dagger:hilt-compiler:$daggerHilt")
 }
 
-fun DependencyHandler.generalTest() {
-    testImplementation("junit:junit:4.13.2")
+fun DependencyHandler.retrofit() {
+    val version = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$version")
+    implementation("com.squareup.retrofit2:converter-moshi:$version")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 }
+
+/*fun DependencyHandler.moshi() {
+    val version = "1.13.0"
+    implementation("com.squareup.moshi:moshi:$version")
+    implementation("com.squareup.moshi:moshi-adapters:$version")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:$version")
+}*/
+
+/*TEST*/
 
 fun DependencyHandler.androidTest() {
     generalTest()
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+}
+
+fun DependencyHandler.generalTest() {
+    testImplementation("junit:junit:4.13.2")
+    mockito()
+}
+
+fun DependencyHandler.mockito() {
+    val version = "3.12.4"
+    testImplementation("org.mockito:mockito-core:$version")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
 }
 
 ///////////////

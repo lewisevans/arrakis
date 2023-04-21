@@ -1,6 +1,6 @@
 package com.example.movies.domain
 
-import com.example.movies.domain.fake.FakeFilmRepository
+import com.example.movies.fake.FakeFilmRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
